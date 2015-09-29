@@ -1,0 +1,40 @@
+{% extends "admin/base.html" %}
+{% block headjs %}
+<script>
+    function loaded() {
+    }
+    function btntyp_onclick() {
+
+    }
+</script>
+{% endblock %}
+{% block body %}
+<body onload="loaded()">
+<div class="container-fluid">
+    {% if _errorcode is defined %}
+    <div class="alert alert-danger" role="alert">错误:[{{ _errorcode }}][{{ _errormsg }}]</div>
+    {% endif %}
+    <fieldset>
+        <legend>数据操作</legend>
+        <form name="postframe" id="postframe" method="post" action="/datastore/{{ table }}">
+            <div class="form-group">
+                <label for="operateflag">增删改查</label>
+                <select name="operateflag" style="width:100%;" id="operateflag" onchange="btntyp_onclick()">
+                    <option value="I">添加</option>
+                    <option value="M">修改</option>
+                    <option value="D">删除</option>
+                    <option value="S">查询</option>
+                </select>
+            </div>
+            {% for field in fieldsdef -%}
+            <div class="form-group" id="div.{{ field }}">
+                <label for="{{ field }}">{{ field }}</label>
+                <input type="text" id="{{ field }}" name="{{ field }}" class="form-control">
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-default" style="width: 100%;">提交</button>
+        </form>
+    </fieldset>
+</div>
+</body>
+{% endblock %}

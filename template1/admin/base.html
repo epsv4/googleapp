@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    {%- if _localorsae == "local" -%}
+    <script src="/static/js/jquery-1.9.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <link href="/static/js/bootstrap.min.css" rel="stylesheet">
+    {%- else -%}
+    <script src="/static/jquery.min.js"></script>
+    <script src="/static/bootstrap.min.js"></script>
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    {%- endif -%}
+    {% if _title is defined %}
+    <title>{{ _title }}</title>
+    {% endif -%}
+    {% block headcss %} {% endblock -%}
+    {% block headjs %} {% endblock -%}
+</head>
+{% block body %}
+{% endblock %}
+</html>

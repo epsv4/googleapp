@@ -1,0 +1,32 @@
+<html>
+<body>
+    <!--bgsound src="wav/Start.wav" loop=1-->
+<form method="post" action="/tableopr">
+    <input type=text name=tablename value={{tablename}} readonly>
+    <p>
+    <table border="0" width=100% cellspacing="1" cellpadding="0" bgcolor="#000000" >
+        <tr><td align=center bgcolor=#FFFFFF width=6>idx</td><td align=center bgcolor=#FFFFFF width=10>keyid</td>
+            {% for fld in fields %}
+            <td align=center bgcolor=#FFFFFF>{{fld}}</td> {% endfor %} <td align=center bgcolor=#FFFFFF>option</td>
+        </tr> 
+        {% for  keyid, row in values %}
+        <tr>  {% for col in row %} <td align=center bgcolor=#FFFFFF>{{col}}</td> {% endfor %} 
+            <td align=center bgcolor=#FFFFFF><input type=checkbox name=id value={{keyid}}></td>
+        </tr> 
+        {% endfor %} 
+    </table>
+    <p>
+    <input type=submit name=operator value=insert>
+    <input type=submit name=operator value=delete>
+    <input type=submit name=operator value=update>
+    <input type=submit name=operator value=back>
+</form>
+
+
+<div id='pageinf'>
+    {% for idx, url in pages %}
+    <a href="{{url}}">{{idx}} </a>
+    {% endfor %}
+</div>
+</body>
+</html>

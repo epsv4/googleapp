@@ -1,0 +1,18 @@
+<div align=center>
+<form method="post" action="/tableopr">
+    <table>
+    <tr>
+        <td>tabname</td><td><input type="text" name="tablename" value="{{tablename}}"  readonly> </td>
+    </tr>
+    {% for fld, value in fields %}
+    <tr>
+        <td>{{fld}}</td>
+        <td><input type="text" name="{{fld}}" value="{{value}}"></td>
+    </tr>
+    {% endfor %}
+    </table>
+    <input type="submit" name="operator" value="add">
+    <input type="submit" name="operator" value="modify">
+    <input type="submit" name="operator" value="back">
+</form>
+</div>

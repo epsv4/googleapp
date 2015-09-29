@@ -1,0 +1,16 @@
+<div align=center>
+<form method="post" action="/tableopr" id="form_tableopr">
+    <select name="tablename"  id="form_tabname">
+    {% for tablename in tmp_tabname %}
+    <option value="{{tablename}}">{{tablename}}</option>
+    {% endfor %}
+    </select>
+    <select name="operator" id="form_operator">
+        <option value="select">select</option>
+        <option value="clear">clear</option>
+        <option value="insert">insert</option>
+    </select>
+    <input name="pagenum" id="form_pagenum" value="50"></input>
+    <input type="submit" id="form_submit" value="submit" />
+</form>
+</div>

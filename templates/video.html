@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <h1>178 dota</h1>
+</head>
+
+<body>
+    <div class="videos"> 
+        <table> 
+        {% for item in items %}
+            <tr>
+                <td>{{item.updtime}}</td>
+                <td>{{item.title}}</td>
+                <td> <form action="/unwatch" method="post" target="_blank">
+                    <div> <input type="hidden" readonly="readonly" name="uid" value="{{item.uid}}"/>
+                    <input type="submit" value="watch"></div>
+                 </form> </td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+
+</body>
+</html>

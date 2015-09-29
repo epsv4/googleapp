@@ -1,0 +1,4 @@
+cron:
+- description: zhihuribao
+  url: /cron/zhihuribao
+  schedule: every 10 minutes
